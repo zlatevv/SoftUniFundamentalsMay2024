@@ -1,0 +1,6 @@
+d1 = int(input())
+d2 = int(input())
+result = ""
+for i in range(d1, d2 + 1):
+    result += chr(i) + " "
+print(result)
