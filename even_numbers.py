@@ -1,4 +1,3 @@
-def even_numbers(lst):
-    return lst % 2 == 0
-numbers = list(map(int, input().split()))
-print(list(filter(even_numbers, numbers)))
+numbers = list(map(int, input().split(", ")))
+indexes = [index for index, number in enumerate(numbers) if number % 2 == 0]
+print(indexes)
