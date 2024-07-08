@@ -1,17 +1,16 @@
-def coffee(number):
-    cost = 1.50 * number
-    return f"{cost:.2f}"
-def water(number):
-    cost = 1.00 * number
-    return f"{cost:.2f}"
-def coke(number):
-    cost = 1.40 * number
-    return f"{cost:.2f}"
-name = input()
-quantity = int(input())
-if name == "coffee":
-    print(coffee(quantity))
-elif name == "water":
-    print(water(quantity))
-elif name == "coke":
-    print(coke(quantity))
+orders = {}
+while True:
+    data = input().split()
+    if data[0] == "buy":
+        break
+    name = data[0]
+    price = float(data[1])
+    quantity = int(data[2])
+    if name in orders.keys():
+        current_quantity= orders[name][1]
+        orders[name] = [price, current_quantity + quantity]
+    else:
+        orders[name] = [price, quantity]
+for product, cost in orders.items():
+    money = cost[0] * cost[1]
+    print(f"{product} -> {money:.2f}")
